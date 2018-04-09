@@ -1,0 +1,13 @@
+<div class="jumbotron text-center">
+  <h1>Welcome to MMO Football Manager</h1>
+
+  <div ng-if="!main.loggedIn">
+    <p>Login to play MMO Football Manager.</p>
+    <a href="/login" class="btn btn-primary">Login</a>
+  </div>
+
+  <div ng-if="main.loggedIn">
+    <p>Begin Playing...</p>
+    <a href="/users" class="btn btn-primary">Game Screen</a>
+  </div>
+</div>
