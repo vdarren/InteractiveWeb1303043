@@ -1,5 +1,5 @@
 <div class="jumbotron text-center">
-  <h1>Welcome to MMO Football Manager</h1>
+  <h1>Welcome to MMO Football Manager, {{ main.user.username }}!</h1>
 
   <div ng-if="!main.loggedIn">
     <p>Login to play MMO Football Manager.</p>
@@ -7,7 +7,9 @@
   </div>
 
   <div ng-if="main.loggedIn">
-    <p>Begin Playing...</p>
-    <a href="/users" class="btn btn-primary">Game Screen</a>
+
+    <p>Enter Team Name...</p>
+    <a href="/playMatch" class="btn btn-primary">Game Screen</a>
+
   </div>
 </div>

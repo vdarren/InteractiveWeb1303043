@@ -31,6 +31,13 @@ angular.module('app.routes', ['ngRoute'])
         })
 
 
+        // chat page
+        .when('/chat', {
+            templateUrl: 'app/views/pages/chat.html',
+            controller: 'mainController',
+            controllerAs: 'login'
+        })
+
         // show all users
       .when('/users', {
         templateUrl: 'app/views/pages/users/all.html',

@@ -12,11 +12,21 @@ var UserSchema = new Schema({
       unique: true
     }
   },
-  password: {
-    type: String,
-    required: true,
-    select: false
-  }
+  password: String,
+
+   attack: {
+        type: Number,
+        required: true
+   },
+    defense: {
+        type: Number,
+        required: true
+    },
+
+    points: {
+        type: Number,
+        required: true
+    },
 });
 
 // hash the password before the user is saved

@@ -146,6 +146,10 @@ module.exports = function(app, express) {
       user.name = req.body.name; // set the users name (comes from the request)
       user.username = req.body.username; // set the users username (comes from the request)
       user.password = req.body.password; // set the users password (comes from the request)
+        user.attack = req.body.attack; // set the users username (comes from the request)
+        user.defense = req.body.defense; // set the users password (comes from the request)
+        user.points = req.body.points; // set the users username (comes from the request)
+
 
       user.save(function(err) {
         if (err) {
@@ -202,6 +206,10 @@ module.exports = function(app, express) {
         if (req.body.name) user.name = req.body.name;
         if (req.body.username) user.username = req.body.username;
         if (req.body.password) user.password = req.body.password;
+          if (req.body.attack) user.attack = req.body.attack;
+          if (req.body.defense) user.defense = req.body.defense;
+          if (req.body.points) user.points = req.body.points;
+
 
         // save the user
         user.save(function(err) {

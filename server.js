@@ -4,6 +4,8 @@
 // CALL THE PACKAGES --------------------
 var express = require('express'); // call express
 var app = express(); // define our app using express
+var http = require('http').Server(express)
+var io = require('socket.io')(path);
 var bodyParser = require('body-parser'); // get body-parser
 var morgan = require('morgan'); // used to see requests
 var mongoose = require('mongoose');
@@ -49,7 +51,21 @@ app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 });
 
+io.on('connection', function(socket){
+    console.log('a user has connected');
+});
+
+io.on('connection', function(socket){
+    console.log('a user connected');
+    socket.on('disconnect', function(){
+        console.log('user disconnected');
+    });
+});
+
+io.emit('some event', { for: 'everyone' });
+
+
 // START THE SERVER
 // ====================================
 app.listen(config.port);
-console.log('Magic happens on port ' + config.port);
+console.log('You are connected on port: ' + config.port);
