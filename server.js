@@ -51,8 +51,8 @@ app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 });
 
-io.on('connection', function(socket){
-    console.log('a user has connected');
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/public/app/views/pages/chat.html');
 });
 
 io.on('connection', function(socket){
@@ -62,7 +62,11 @@ io.on('connection', function(socket){
     });
 });
 
-io.emit('some event', { for: 'everyone' });
+io.on('connection', function(socket){
+    socket.on('chat message', function(msg){
+        console.log('message: ' + msg);
+    });
+});
 
 
 // START THE SERVER
